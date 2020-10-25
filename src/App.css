@@ -70,30 +70,3 @@
   position: relative;
   left: 115px !important;
 }
-
-.button-add-playlist {
-  font-size: xxx-large;
-  z-index: 10;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  border: none;
-  border-radius: 50%;
-  padding: 0px;
-}
-.create-playlist-table {
-  font-size: 15px;
-  font-weight: lighter;
-  margin: px;
-}
-
-.create-playlist-table input {
-  height: 40px;
-  font-size: 20px;
-}
-
-.create-playlist-table select {
-  height: 40px;
-  font-size: 20px;
-}
-

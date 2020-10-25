@@ -6,20 +6,19 @@ import List from "./List"
 
 function App(props) {
 	return (
-	  <div>
+		<div>
 
 
-	    <Page fullWidth>
-	      <Layout>
-	        <List></List>
-	        <AddUser></AddUser>
-	      </Layout>
-	    </Page>
+			<Page fullWidth>
+				<Layout>
+					<List></List>
+					<AddUser></AddUser>
+				</Layout>
 
-      
-  </div>
-  
-  )
-  }
+			</Page>
+		</div>
+
+	)
+}
 
 export default App;

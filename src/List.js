@@ -1,8 +1,9 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout, Card, ResourceList, Avatar, ResourceItem, TextStyle } from "@shopify/polaris"
 import { db } from './firebase';
 
 import Popup from 'reactjs-popup';
+import EditUser from "./EditUser"
 
 function List(props) {
     const [data, setData] = useState([]);
@@ -43,6 +44,11 @@ function List(props) {
         return url;
     }
 
+    const delUser = (id) => {
+        db.ref(`user`).child(`${id}`).remove();
+    }
+
+
     return (
         <Layout.Section>
             <Card>
@@ -61,18 +67,30 @@ function List(props) {
                                 email={email}
                                 lat={lat}
                                 lng={lng}
+                                address={address}
                                 accessibilityLabel={`View details for ${name}`}>
                                 <h3> <TextStyle variation="strong">{name}</TextStyle></h3>
-                                <div>
-                                    <p>{tel}</p>
-                                    <p>{email}</p>
-                                    <Popup trigger={<a href="#">{address}</a>}>
-                                        <div>
-                                            <iframe src={getURL(lat, lng)} width="600" height="450" title="abc" frameBorder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                                <div className="row">
+                                    <div className="col">
+                                        <p>{tel}</p>
+                                        <p>{email}</p>
+                                        <Popup trigger={<a href="#">{address}</a>}>
+                                            <div>
+                                                <iframe src={getURL(lat, lng)} width="600" height="450" title="abc" frameBorder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                                            </div>
+                                        </Popup>
+
+                                    </div>
+                                    <button className=" btn-danger" style={{ height: "fit-content" }} onClick={() => delUser(id)}>Del</button>
+                                    <Popup trigger={<button className=" btn-warning" style={{ height: "fit-content" }} >Edit</button>}>
+                                        <div style={{position:"relative", bottom:"20px", left:"225px"}}>
+                                            <EditUser id={id} name={name} tel={tel} email={email} address={address} lat={lat} lng={lng}></EditUser>
                                         </div>
                                     </Popup>
 
                                 </div>
+
+
                             </ResourceItem>
                         )
                     }}
