@@ -64,7 +64,7 @@ function AddUser(props) {
                             onChange={handleTelChange}
                             maxLength={12}
                             minLength={8}
-                            pattern="[0-9]{8-12}"
+                            pattern="[0-9]{8,12}"
                             helpText="Vui lòng điền theo định dạng: 123456789"
                             label="Tel">
                         </TextField>
@@ -74,7 +74,9 @@ function AddUser(props) {
                             maxLength={50}
                             label="Address">
                         </TextField> */}
-                        <Map
+                        
+                    </FormLayout>
+                    <Map
                             center={{ lat: 21.0280735, lng: 105.8502163 }}
                             height='300px'
                             zoom={15}
@@ -84,7 +86,6 @@ function AddUser(props) {
                         <hr></hr>
                         <hr></hr>
                         <Button  submit>Save</Button>
-                    </FormLayout>
                 </Card>
             </Form>
         </Layout.Section>
