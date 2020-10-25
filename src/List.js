@@ -1,10 +1,8 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Layout, Card, ResourceList, Avatar, ResourceItem, TextStyle } from "@shopify/polaris"
 import { db } from './firebase';
 
 import Popup from 'reactjs-popup';
-
-import pic1 from "./images/pic1.jpg"
 
 function List(props) {
     const [data, setData] = useState([]);
@@ -40,9 +38,9 @@ function List(props) {
 
     const chosePage = (event) => setCurrentPage(Number(event.target.id))
 
-    const getURL  = (lat, lng) => {
-		let url = "https://maps.google.com/maps?q=" + lat.toString() + "," + lng.toString() + "&hl=es;z=14&amp&output=embed" ;
-		return url;
+    const getURL = (lat, lng) => {
+        let url = "https://maps.google.com/maps?q=" + lat.toString() + "," + lng.toString() + "&hl=es;z=14&amp&output=embed";
+        return url;
     }
 
     return (
@@ -55,29 +53,28 @@ function List(props) {
                         const { id, name, address, tel, email, lat, lng } = item;
                         const media = <Avatar customer size="medium" name={name} />;
                         return (
-                            <div>
-                                <ResourceItem
-                                    id={id}
-                                    // url={id}
-                                    media={media}
-                                    tel={tel}
-                                    email={email}
-                                    lat={lat}
-                                    lng={lng}
-                                    accessibilityLabel={`View details for ${name}`}>
-                                    <h3> <TextStyle variation="strong">{name}</TextStyle></h3>
-                                    <div>
-                                        <p>{tel}</p>
-                                        <p>{email}</p>
-                                        <Popup trigger={<a href="#">{address}</a>}>
-                                            <div>
-                                                <iframe src={getURL(lat,lng)} width="600" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                            </div>
-                                        </Popup>
+                            <ResourceItem
+                                id={id}
+                                // url={id}
+                                media={media}
+                                tel={tel}
+                                email={email}
+                                lat={lat}
+                                lng={lng}
+                                accessibilityLabel={`View details for ${name}`}>
+                                <h3> <TextStyle variation="strong">{name}</TextStyle></h3>
+                                <div>
+                                    <p>{tel}</p>
+                                    <p>{email}</p>
+                                    <Popup trigger={<a href="#">{address}</a>}>
+                                        <div>
+                                            <iframe src={getURL(lat, lng)} width="600" height="450" title="abc" frameBorder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                                        </div>
+                                    </Popup>
 
-                                    </div>
-                                </ResourceItem>
-                            </div>)
+                                </div>
+                            </ResourceItem>
+                        )
                     }}
                 />
                 <div className="pagination-custom">

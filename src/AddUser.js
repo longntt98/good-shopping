@@ -1,9 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { db } from "./firebase";
-import { Button, FormLayout, TextField, Layout, Card, Form, Page } from '@shopify/polaris';
+import { Button, FormLayout, TextField, Layout, Card, Form } from '@shopify/polaris';
 
-import Autocomplete from 'react-google-autocomplete';
-import { GoogleMap } from 'react-google-maps';
 
 import Map from "./Map"
 
@@ -18,7 +16,6 @@ function AddUser(props) {
     const handleNameChange = useCallback(value => setName(value), []);
     const handleEmailChange = useCallback(value => setEmail(value), []);
     const handleTelChange = useCallback(value => setTel(value), []);
-    const handleAddressChange = useCallback(value => setAddress(value), []);
 
     const handleSubmit = (_event) => {
         if (name && email && tel && address) {
@@ -31,12 +28,12 @@ function AddUser(props) {
                 lng: lng,
             })
             alert("Lưu thành công");
-            setName("");setEmail(""); setTel("")
+            setName(""); setEmail(""); setTel("")
         }
         else alert("Vui lòng điền đầy đủ thông tin")
     }
 
-    const sendData  = (address, lat, lng) => {
+    const sendData = (address, lat, lng) => {
         setAddress(address); setLat(lat); setLng(lng);
     }
 
@@ -74,9 +71,8 @@ function AddUser(props) {
                             maxLength={50}
                             label="Address">
                         </TextField> */}
-                        
-                    </FormLayout>
-                    <Map
+
+                        <Map
                             center={{ lat: 21.0280735, lng: 105.8502163 }}
                             height='300px'
                             zoom={15}
@@ -85,7 +81,8 @@ function AddUser(props) {
                         <hr></hr>
                         <hr></hr>
                         <hr></hr>
-                        <Button  submit>Save</Button>
+                        <Button submit>Save</Button>
+                    </FormLayout>
                 </Card>
             </Form>
         </Layout.Section>

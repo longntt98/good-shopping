@@ -37,8 +37,6 @@ class Map extends Component {
 					area = this.getArea(addressArray),
 					state = this.getState(addressArray);
 
-				console.log('city', city, area, state);
-
 				this.setState({
 					address: (address) ? address : '',
 					area: (area) ? area : '',
@@ -58,7 +56,7 @@ class Map extends Component {
 	 * @param nextState
 	 * @return {boolean}
 	 */
-	shouldComponentUpdate(nextProps, nextState) {
+	shouldComponentUpdate( nextProps, nextState ){
 		if (
 			this.state.markerPosition.lat !== this.props.center.lat ||
 			this.state.address !== nextState.address ||
@@ -67,8 +65,8 @@ class Map extends Component {
 			this.state.state !== nextState.state
 		) {
 			return true
-		} else if (this.props.center.lat === nextProps.center.lat) {
-			return false
+		} else if ( this.props.center.lat === nextProps.center.lat ){
+		 return false
 		}
 	}
 	/**
