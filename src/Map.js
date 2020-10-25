@@ -58,7 +58,6 @@ class Map extends Component {
 	 */
 	shouldComponentUpdate( nextProps, nextState ){
 		if (
-			this.state.markerPosition.lat !== this.props.center.lat ||
 			this.state.address !== nextState.address ||
 			this.state.city !== nextState.city ||
 			this.state.area !== nextState.area ||
