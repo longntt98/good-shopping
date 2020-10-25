@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { AppProvider } from '@shopify/polaris';
+import enTranslations from '@shopify/polaris/locales/en.json';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AppProvider i18n={enTranslations}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  </AppProvider>
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+  , document.getElementById('root'));
+
 serviceWorker.unregister();

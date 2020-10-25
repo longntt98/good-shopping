@@ -3,14 +3,9 @@
 }
 
 .App-logo {
+  animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -36,3 +31,69 @@
     transform: rotate(360deg);
   }
 }
+
+
+#page-numbers {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#page-numbers > li {
+  color: rgb(62, 140, 204);
+  user-select: none;
+  cursor: pointer;
+  margin: 0 3px;
+  padding: 0 5px;
+  border: 1px solid rgb(62, 140, 204);
+  text-align: center;
+  border-radius: 2px;
+}
+
+#page-numbers > li:not(.active):hover {
+  background: rgb(62, 140, 204);
+  color: white;
+}
+
+#page-numbers > li.active {
+  border-color: grey;
+  color: white;
+  background: grey;
+  cursor: default;
+}
+
+.popup-content {
+  position: relative;
+  left: 115px !important;
+}
+
+.button-add-playlist {
+  font-size: xxx-large;
+  z-index: 10;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  border-radius: 50%;
+  padding: 0px;
+}
+.create-playlist-table {
+  font-size: 15px;
+  font-weight: lighter;
+  margin: px;
+}
+
+.create-playlist-table input {
+  height: 40px;
+  font-size: 20px;
+}
+
+.create-playlist-table select {
+  height: 40px;
+  font-size: 20px;
+}
+
